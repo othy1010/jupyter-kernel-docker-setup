@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  jupyter:
+    build: .
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./data:/home/jovyan/data
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    command: "start-notebook.sh --NotebookApp.disable_check_xsrf=True --NotebookApp.ip='0.0.0.0' --NotebookApp.token='' --NotebookApp.password=''"
